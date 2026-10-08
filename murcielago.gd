@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 var direction = 1
 const SPEED = 500.0
+const VELOCIDAD_VERTICAL = 150.0
+
 var death = false
 var cayendo = false
 
-var limite_izquierdo = 0
-var limite_derecho = 2000
+var limite_izquierdo = -6983
+var limite_derecho = 9097
 
 
 func _ready() -> void:
@@ -30,8 +32,24 @@ func _physics_process(delta: float) -> void:
 		
 		return
 	
-	# Mover el murcielago
+	
+	# Mover el murcielago horizontalmente
 	velocity.x = SPEED * direction
+	
+	
+	# Mantener la distancia del suelo
+	if not $Mantener.is_colliding():
+		# No detecta suelo -> baja
+		velocity.y = VELOCIDAD_VERTICAL
+		
+	elif $Subir.is_colliding():
+		# Hay obstaculo demasiado cerca -> sube
+		velocity.y = -VELOCIDAD_VERTICAL
+		
+	else:
+		# Esta a la distancia correcta
+		velocity.y = 0
+	
 	
 	# Llegar al limite derecho
 	if global_position.x >= limite_derecho:
@@ -43,7 +61,20 @@ func _physics_process(delta: float) -> void:
 		direction = 1
 		$AnimatedSprite2D.flip_h = false
 	
+	
 	move_and_slide()
+	
+	# Comprobar si el murcielago ha chocado contra el jugador
+	for i in get_slide_collision_count():
+		var colision = get_slide_collision(i)
+		var cuerpo = colision.get_collider()
+		
+		if cuerpo.is_in_group("jugador"):
+			var normal = colision.get_normal()
+			
+			# Si el choque es lateral, mata al jugador
+			if abs(normal.x) > 0.5:
+				cuerpo.morir()
 
 
 func _on_kill_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

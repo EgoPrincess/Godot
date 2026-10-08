@@ -16,11 +16,12 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	velocity.x = SPEED + direction
+	
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	if $SaltarAbajo.is_colliding() and is_on_floor() and not $SaltarArriba.is_colliding():
-		velocity.y =-443
+		velocity.y = -443
 	
 	
 	if not $Caer.is_colliding() and is_on_floor() and not $DetectarSuelo.is_colliding():
@@ -33,10 +34,21 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.flip_h = velocity.x < 0
 	
 	
-	
 	velocity.x = SPEED * direction
 	
 	move_and_slide()
+	
+	# Comprobar si el enemigo ha chocado contra el jugador
+	for i in get_slide_collision_count():
+		var colision = get_slide_collision(i)
+		var cuerpo = colision.get_collider()
+		
+		if cuerpo.is_in_group("jugador"):
+			var normal = colision.get_normal()
+			
+			# Si el choque es lateral, mata al jugador
+			if abs(normal.x) > 0.5:
+				cuerpo.morir()
 
 
 func _on_kill_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:

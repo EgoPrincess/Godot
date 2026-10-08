@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dk48tu4f7pu3k" path="res://GodotSprites/Pixel Platformer Pack/Pixel Platformer Pack/Goblin/goblin run.png" id="11_cpbl2"]
 [ext_resource type="Texture2D" uid="uid://c58r1buyquhal" path="res://GodotSprites/Pixel Platformer Pack/Pixel Platformer Pack/Murcielago/Bat_Sprite_Sheet.png" id="13_2ixx1"]
 [ext_resource type="Script" uid="uid://dmlv7w51fljjo" path="res://murcielago.gd" id="13_cpbl2"]
+[ext_resource type="Script" uid="uid://rcw5l0ejc8b0" path="res://golem.gd" id="15_txukx"]
+[ext_resource type="Texture2D" uid="uid://e8r0348qwqjq" path="res://GodotSprites/Pixel Platformer Pack/Pixel Platformer Pack/Golem/Mini Golem Sprite Sheet.png" id="16_5qrak"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mnl4"]
 texture = ExtResource("1_3mnl4")
@@ -597,6 +599,149 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_702ii"]
 size = Vector2(104.81351, 3.1420865)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_05dhx"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_702ii"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olak7"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc1qn"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oyf1"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ys5m"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1lx41"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh6ho"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhrlt"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty71u"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw2go"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5tun"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trk7g"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdlwp"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbjsk"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmetf"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsanw"]
+atlas = ExtResource("16_5qrak")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vicex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_05dhx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_702ii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olak7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc1qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oyf1")
+}],
+"loop": 0,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ys5m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1lx41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh6ho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhrlt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty71u")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw2go")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5tun")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trk7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wdlwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbjsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmetf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsanw")
+}],
+"loop": 0,
+"name": &"Punch",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(93, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pkoy"]
+size = Vector2(78, 11)
+
 [node name="Cosas" type="Node" unique_id=648161263]
 
 [node name="Suelo" type="StaticBody2D" parent="." unique_id=708334465]
@@ -677,7 +822,7 @@ scale = Vector2(0.9999999, 9.013465)
 shape = SubResource("RectangleShape2D_77to7")
 
 [node name="Murcielago" type="CharacterBody2D" parent="." unique_id=1167083261 groups=["enemy"]]
-position = Vector2(-2233, 114)
+position = Vector2(-2262.0002, 87.00001)
 scale = Vector2(0.37447235, 0.353094)
 collision_layer = 2
 collision_mask = 11
@@ -702,7 +847,45 @@ position = Vector2(2.6703968, -53.810028)
 scale = Vector2(0.9999999, 9.013465)
 shape = SubResource("RectangleShape2D_702ii")
 
+[node name="Mantener" type="RayCast2D" parent="Murcielago" unique_id=1351146085]
+target_position = Vector2(0.00048828125, 348.34912)
+collision_mask = 8
+
+[node name="Subir" type="RayCast2D" parent="Murcielago" unique_id=580348604]
+target_position = Vector2(0.00048828125, 291.70697)
+collision_mask = 8
+
+[node name="Golem" type="CharacterBody2D" parent="." unique_id=276605141 groups=["enemy"]]
+position = Vector2(-1325, 159)
+script = ExtResource("15_txukx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Golem" unique_id=413806739]
+position = Vector2(15.999999, -49.999996)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_vicex")
+animation = &"Death"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Golem" unique_id=1058328579]
+position = Vector2(24.5, 4)
+shape = SubResource("RectangleShape2D_lfkbx")
+
+[node name="Morir" type="Area2D" parent="Golem" unique_id=4997495]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Golem/Morir" unique_id=1145324492]
+position = Vector2(25, -26.5)
+shape = SubResource("RectangleShape2D_1pkoy")
+
+[node name="Derecha" type="RayCast2D" parent="Golem" unique_id=136182862]
+position = Vector2(24, -3)
+target_position = Vector2(58, 0)
+
+[node name="Izquierda" type="RayCast2D" parent="Golem" unique_id=1749009967]
+position = Vector2(24, -3)
+target_position = Vector2(-58, 0)
+
 [connection signal="animation_finished" from="Gobling/AnimatedSprite2D" to="Gobling" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_shape_entered" from="Gobling/Kill" to="Gobling" method="_on_kill_body_shape_entered"]
 [connection signal="animation_finished" from="Murcielago/AnimatedSprite2D" to="Murcielago" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_shape_entered" from="Murcielago/Kill" to="Murcielago" method="_on_kill_body_shape_entered"]
+[connection signal="animation_finished" from="Golem/AnimatedSprite2D" to="Golem" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_shape_entered" from="Golem/Morir" to="Golem" method="_on_morir_body_shape_entered"]

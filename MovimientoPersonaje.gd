@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
 var velocidad_x = 400
-var salto = -443
+var salto = -493
 var luna = false
 var death = false
 var normal
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -35,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity += get_gravity() * delta * 0.5
 	
-	# toggle gravedad
+	# Toggle gravedad
 	if Input.is_action_just_pressed("gravedad"):
 		luna = not luna
 	
@@ -56,7 +57,14 @@ func _physics_process(delta: float) -> void:
 			normal = colision.get_normal()
 			
 			if abs(normal.x) > 0.5:
-				death = true
-				$AnimatedSprite2D.play("Death")
-				await get_tree().create_timer(2.0).timeout
-				get_tree().quit()
+				morir()
+
+
+func morir():
+	if death:
+		return
+	
+	death = true
+	$AnimatedSprite2D.play("Death")
+	await get_tree().create_timer(2.0).timeout
+	get_tree().quit()
