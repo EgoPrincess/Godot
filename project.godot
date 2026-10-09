@@ -56,6 +56,7 @@ gravedad={
 2d_physics/layer_1="Personaje"
 2d_physics/layer_2="Enemigo"
 2d_physics/layer_4="Suelo"
+2d_physics/layer_5="Fondo"
 
 [physics]
 
